@@ -37,7 +37,7 @@ class GetDashboardData
       sort_by { |date, _| date }.
       map do |date, total|
       {
-        period: date,
+        period: date.strftime("%Y-%m"),
         cupsSaved: total
       }
     end
