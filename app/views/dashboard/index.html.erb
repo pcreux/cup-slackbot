@@ -2,7 +2,7 @@
     <div id="page-wrapper">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Save the Cups</h1>
+                <h1 class="page-header">Save the Cups!</h1>
             </div>
             <!-- /.col-lg-12 -->
         </div>
@@ -16,7 +16,7 @@
                                 <i class="fa fa-coffee fa-5x"></i>
                             </div>
                             <div class="col-xs-9 text-right">
-                                <div class="huge" id="totalCupsSaved">0</div>
+                                <div class="huge" id="totalCupsSaved"></div>
                                 <div>Reusable cups saved</div>
                             </div>
                         </div>
@@ -31,7 +31,7 @@
                                 <i class="fa fa-money fa-5x"></i>
                             </div>
                             <div class="col-xs-9 text-right">
-                                <div class="huge" id="totalMoneySaved">$0.00</div>
+                                <div class="huge" id="totalMoneySaved"></div>
                                 <div>Money saved</div>
                             </div>
                         </div>
@@ -43,20 +43,66 @@
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-xs-1">
-                                <img class="user-image" id="lastMonthTopSaverImage" src="#" />
+                                <img class="user-image" id="lastMonthTopSaverImage" src="" />
                             </div>
                             <div class="col-xs-4 text-right">
                               <div class="large" id="lastMonthTopSaver"></div>
                             </div>
                             <div class="col-xs-7 text-right">
-                                <div class="large" id="lastMonthHeader">December 2016 Winner</div>
-                                <div id="lastMonthValues">100 cups ($5.00)</div>
+                                <div class="large" id="lastMonthHeader"></div>
+                                <div id="lastMonthValues"></div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
+          </div>
+          <div class="row">
+            <div class="col-lg-4 col-md-6">
+                <div class="panel panel-yellow">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <i class="fa fa-balance-scale fa-5x"></i>
+                            </div>
+                            <div class="col-xs-9 text-right">
+                                <div class="huge" id="totalWeightSaved"></div>
+                                <div>Waste saved</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <i class="fa fa-cloud fa-5x"></i>
+                            </div>
+                            <div class="col-xs-9 text-right">
+                                <div class="huge" id="totalGasSaved"></div>
+                                <div>C02 kept out of the atmosphere</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="panel panel-green">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <i class="fa fa-tint fa-5x"></i>
+                            </div>
+                            <div class="col-xs-9 text-right">
+                                <div class="huge" id="totalWaterSaved"></div>
+                                <div>Water saved</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <!-- /.row -->
         <div class="row">
@@ -77,7 +123,7 @@
             <div class="col-lg-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <i class="fa fa-bell fa-fw"></i> <span id="thisMonthHeader">Top 10 January 2017</span>
+                        <i class="fa fa-bell fa-fw"></i> <span id="thisMonthHeader"></span>
                     </div>
                     <!-- /.panel-heading -->
                     <div class="panel-body">
@@ -93,7 +139,6 @@
         <!-- /.row -->
     </div>
     <!-- /#page-wrapper -->
-
     <footer class="footer">
       <div class="container">
         <p id="lastUpdated">...</p>

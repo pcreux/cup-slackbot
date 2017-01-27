@@ -17,6 +17,10 @@ var thisMonthStart = new Date(Date.UTC(now.getFullYear(), now.getMonth(), 1));
 var thisMonthEnd = new Date(Date.UTC(now.getFullYear(), now.getMonth() + 1, 0, 11, 59, 59));
 var thisMonthString = monthNames[thisMonthEnd.getMonth()] + " " + thisMonthEnd.getFullYear();
 
+var cupWeight = 0.063;
+var gasAmount = 0.24;
+var waterAmount = 0.9;
+
 var trendChart;
 
 $(function() {
@@ -47,15 +51,18 @@ function update() {
 }
 
 function updatePage(apiData) {
-	$("#totalCupsSaved").html(apiData.totalCupsSaved);
-	$("#totalMoneySaved").html("$" + (apiData.totalCupsSaved * nonreusableCupValue).toFixed(2));
+  $("#totalCupsSaved").html(apiData.totalCupsSaved);
+  $("#totalMoneySaved").html("$" + (apiData.totalCupsSaved * nonreusableCupValue).toFixed(2));
+  $("#totalWeightSaved").html((apiData.totalCupsSaved * cupWeight).toFixed(0) + " lbs");
+  $("#totalGasSaved").html((apiData.totalCupsSaved * gasAmount).toFixed(0) + " lbs");
+  $("#totalWaterSaved").html((apiData.totalCupsSaved * waterAmount).toFixed(0) + " litres");
 
-	$("#lastMonthTopSaver").html(apiData.lastMonthTopSaver);
-	$("#lastMonthTopSaverImage").attr("src", apiData.lastMonthTopSaverImage);
-	$("#lastMonthHeader").html(lastMonthString + " Winner");
-	$("#lastMonthValues").html(apiData.lastMonthTopSaverCupsSaved + " cups ($" + (apiData.lastMonthTopSaverCupsSaved * nonreusableCupValue).toFixed(2) + ")");
+  $("#lastMonthTopSaver").html(apiData.lastMonthTopSaver);
+  $("#lastMonthTopSaverImage").attr("src", apiData.lastMonthTopSaverImage);
+  $("#lastMonthHeader").html(lastMonthString + " Winner");
+  $("#lastMonthValues").html(apiData.lastMonthTopSaverCupsSaved + " cups ($" + (apiData.lastMonthTopSaverCupsSaved * nonreusableCupValue).toFixed(2) + ")");
 
-	$("#thisMonthHeader").html("Top 5 " + thisMonthString);
+  $("#thisMonthHeader").html("Top 5 " + thisMonthString);
 
   $("#top10").html("");
   for (var i = 0; i < apiData.thisMonthTops.length; i++) {
@@ -64,7 +71,7 @@ function updatePage(apiData) {
       "<span class='pull-right leaderboard-amount'><em>" + saver.cupsSaved + " cups ($" + (saver.cupsSaved * nonreusableCupValue).toFixed(2) + ")</em></span></a>");
   }
 
-	trendChart.setData(apiData.trendData); // this will redraw the chart
+  trendChart.setData(apiData.trendData); // this will redraw the chart
 
-	$("#lastUpdated").html("Last Refreshed: " + new Date());
+  $("#lastUpdated").html("Last Refreshed: " + new Date());
 }
