@@ -28,5 +28,12 @@ describe "POST /slack_command" do
       user_identifier: "USER_ID",
       user_name: "bob"
     )
+
+    expect(User.last).to have_attributes(
+			name: "bob",
+			real_name: "Bob Meh",
+			email: "bob.meh@example.com"
+		)
+
   end
 end
