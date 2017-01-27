@@ -47,23 +47,23 @@ function update() {
 }
 
 function updatePage(apiData) {
-  $("#totalCupsSaved").html(apiData.totalCupsSaved);
-  $("#totalMoneySaved").html("$" + apiData.totalCupsSaved * nonreusableCupValue);
+	$("#totalCupsSaved").html(apiData.totalCupsSaved);
+	$("#totalMoneySaved").html("$" + (apiData.totalCupsSaved * nonreusableCupValue).toFixed(2));
 
-  $("#lastMonthTopSaver").html(apiData.lastMonthTopSaver);
-  $("#lastMonthTopSaverImage").attr("src", apiData.lastMonthTopSaverImage);
-  $("#lastMonthHeader").html(lastMonthString + " Winner");
-  $("#lastMonthValues").html(apiData.lastMonthTopSaverCupsSaved + " cups ($" + (apiData.lastMonthTopSaverCupsSaved * nonreusableCupValue) + ")");
+	$("#lastMonthTopSaver").html(apiData.lastMonthTopSaver);
+	$("#lastMonthTopSaverImage").attr("src", apiData.lastMonthTopSaverImage);
+	$("#lastMonthHeader").html(lastMonthString + " Winner");
+	$("#lastMonthValues").html(apiData.lastMonthTopSaverCupsSaved + " cups ($" + (apiData.lastMonthTopSaverCupsSaved * nonreusableCupValue).toFixed(2) + ")");
 
-  $("#thisMonthHeader").html("Top 5 " + thisMonthString);
+	$("#thisMonthHeader").html("Top 5 " + thisMonthString);
 
-  $("#top10").html("");
-  for (saver of apiData.thisMonthTops) {
-    $("#top10").append("<a href='#' class='list-group-item'><img class='user-image' src='" + saver.imageSource + "' /> " + saver.name +
-      "<span class='pull-right leaderboard-amount'><em>" + saver.cupsSaved + " cups ($" + saver.cupsSaved * nonreusableCupValue + ")</em></span></a>");
-  };
+	$("#top10").html("");
+	for (saver of apiData.thisMonthTops) {
+	$("#top10").append("<a href='#' class='list-group-item'><img class='user-image' src='" + saver.imageSource + "' /> " + saver.name +
+			"<span class='pull-right leaderboard-amount'><em>" + saver.cupsSaved + " cups ($" + (saver.cupsSaved * nonreusableCupValue).toFixed(2) + ")</em></span></a>");
+	};
 
-  trendChart.setData(apiData.trendData); // this will redraw the chart
+	trendChart.setData(apiData.trendData); // this will redraw the chart
 
-  $("#lastUpdated").html("Last Refreshed: " + new Date());
+	$("#lastUpdated").html("Last Refreshed: " + new Date());
 }
