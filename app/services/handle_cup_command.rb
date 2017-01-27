@@ -12,5 +12,7 @@ class HandleCupCommand
       user_identifier: command.user_id,
       user_name: command.user_name
     )
+
+    "Thanks for using a reusable cup! You rock!"
   end
 end
