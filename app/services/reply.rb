@@ -13,25 +13,15 @@ class Reply
     thank_you + "\n> " + fact
   end
 
+  def dashboard_link(sentence)
+    "<https://cup-challenge.herokuapp.com|#{sentence}>"
+  end
+
   def thank_you
-    case cups_this_month
-    when 1
-      first_cup
-    else
-      many_cups
-    end
-  end
-
-  def first_cup
     [
-      "Thank you for using a disposable cup. You rock!"
-    ].sample
-  end
-
-  def many_cups
-    [
-      "Awesome! You've used #{human_cups_count} this month!",
-      "#{human_cups_count} so far. Well done!"
+      "Thank you for using #{reusable_cups}. You rock!",
+      "Awesome! You've used #{reusable_cups} this month!",
+      "#{reusable_cups} so far. Well done!"
     ].sample
   end
 
@@ -52,8 +42,14 @@ class Reply
     ].sample
   end
 
-  def human_cups_count
-    pluralize(cups_this_month, "disposable cup")
+  def reusable_cups
+    sentence = if cups_this_month == 1
+      "a reusable cup"
+    else
+      pluralize(cups_this_month, "reusable cup")
+    end
+
+    dashboard_link(sentence)
   end
 
   def cups_this_month
