@@ -57,11 +57,12 @@ function updatePage(apiData) {
 
 	$("#thisMonthHeader").html("Top 5 " + thisMonthString);
 
-	$("#top10").html("");
-	for (saver of apiData.thisMonthTops) {
-	$("#top10").append("<a href='#' class='list-group-item'><img class='user-image' src='" + saver.imageSource + "' /> " + saver.name +
-			"<span class='pull-right leaderboard-amount'><em>" + saver.cupsSaved + " cups ($" + (saver.cupsSaved * nonreusableCupValue).toFixed(2) + ")</em></span></a>");
-	};
+  $("#top10").html("");
+  for (var i = 0; i < apiData.thisMonthTops.length; i++) {
+    var saver = apiData.thisMonthTops[i];
+    $("#top10").append("<a href='#' class='list-group-item'><img class='user-image' src='" + saver.imageSource + "' /> " + saver.name +
+      "<span class='pull-right leaderboard-amount'><em>" + saver.cupsSaved + " cups ($" + (saver.cupsSaved * nonreusableCupValue).toFixed(2) + ")</em></span></a>");
+  }
 
 	trendChart.setData(apiData.trendData); // this will redraw the chart
 
