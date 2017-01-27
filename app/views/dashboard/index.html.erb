@@ -1,11 +1,102 @@
-<h1>Reusable Cup Challenge!</h1>
+<div id="wrapper">
+    <div id="page-wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Save the Cups</h1>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+        <div class="row">
+            <div class="col-lg-3 col-md-6">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <i class="fa fa-coffee fa-5x"></i>
+                            </div>
+                            <div class="col-xs-9 text-right">
+                                <div class="huge" id="totalCupsSaved">0</div>
+                                <div>Reusable cups saved</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="panel panel-green">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <i class="fa fa-money fa-5x"></i>
+                            </div>
+                            <div class="col-xs-9 text-right">
+                                <div class="huge" id="totalMoneySaved">$0.00</div>
+                                <div>Money saved</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+                <div class="panel panel-yellow">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-1">
+                                <img class="user-image" id="lastMonthTopSaverImage" src="user_profile_bruno.png" />
+                            </div>
+                            <div class="col-xs-4 text-right">
+                              <div class="large" id="lastMonthTopSaver">Bruno</div>
+                            </div>
+                            <div class="col-xs-7 text-right">
+                                <div class="large" id="lastMonthHeader">December 2016 Winner</div>
+                                <div id="lastMonthValues">100 cups ($5.00)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-<ul>
-  <% User.all.each do |user| %>
-    <li>
-      <img src="<%= user.avatar_72 %>"></img>
-      <%= user.real_name %>
-      <%= pluralize(user.cups.count, "cup") %>
-    </li>
-  <% end %>
-</ul>
+        </div>
+        <!-- /.row -->
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <i class="fa fa-bar-chart-o fa-fw"></i> Reusable Cups Saver per Month @ Unbounce
+                    </div>
+                    <!-- /.panel-heading -->
+                    <div class="panel-body">
+                        <div id="unbounce-reusable-trends"></div>
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+                <!-- /.panel -->
+            </div>
+            <!-- /.col-lg-8 -->
+            <div class="col-lg-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <i class="fa fa-bell fa-fw"></i> <span id="thisMonthHeader">Top 10 January 2017</span>
+                    </div>
+                    <!-- /.panel-heading -->
+                    <div class="panel-body">
+                        <div class="list-group" id="top10"></div>
+                        <!-- /.list-group -->
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+                <!-- /.panel -->
+            </div>
+            <!-- /.col-lg-4 -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /#page-wrapper -->
+
+    <footer class="footer">
+      <div class="container">
+        <p id="lastUpdated">...</p>
+      </div>
+    </footer>
+</div>

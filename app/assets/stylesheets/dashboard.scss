@@ -1,3 +1,38 @@
-// Place all the styles related to the dashboard controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+  background-image: url('background.jpg');
+}
+
+#page-wrapper {
+  margin: 0px;
+  background-color: transparent !important;
+}
+
+.page-header {
+  color: #FFFFFF;
+}
+
+.user-image {
+  margin-right: 10px;
+}
+
+.leaderboard-amount {
+  line-height: 49px;
+}
+
+.large {
+  font-size: 32px;
+}
+
+.legendLabel {
+  display: block;
+}
+
+#lastMonthTopSaverImage {
+  width: 72px;
+}
+
+.footer .container {
+  width: 100%;
+  color: #FFFFFF;
+  padding-left: 30px;
+}
