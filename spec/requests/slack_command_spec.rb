@@ -22,7 +22,7 @@ describe "POST /slack_command" do
     }.to change { Cup.count }.by(1)
 
     expect(response.code).to eq "200"
-    expect(response.body).to include "Thank"
+    expect(response.body).to_not be_empty
 
     expect(Cup.last).to have_attributes(
       user_identifier: "USER_ID",

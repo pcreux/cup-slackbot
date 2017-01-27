@@ -9,7 +9,7 @@ class HandleCupCommand
   end
 
   def call
-    find_user || create_user!
+    @user = find_user || create_user!
     record_cup!
 
     reply
@@ -43,7 +43,7 @@ class HandleCupCommand
   end
 
   def reply
-    "Thanks for using a reusable cup! You rock!"
+    Reply.call(user: @user)
   end
 
   def default_slack_client
