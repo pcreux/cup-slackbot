@@ -1,1 +1,11 @@
 <h1>Reusable Cup Challenge!</h1>
+
+<ul>
+  <% User.all.each do |user| %>
+    <li>
+      <img src="<%= user.avatar_72 %>"></img>
+      <%= user.real_name %>
+      <%= pluralize(user.cups.count, "cup") %>
+    </li>
+  <% end %>
+</ul>
