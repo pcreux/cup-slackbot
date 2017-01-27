@@ -5,22 +5,11 @@ class GetDashboardData
 
   def call
     {
-      totalCupsSaved: rand(45).to_i,
-      lastMonthTopSaver: "Bruno",
-      lastMonthTopSaverImage: "user_profile_bruno.png",
-      lastMonthTopSaverCupsSaved: 100,
-      thisMonthTops: [
-        {
-          name: "Bruno",
-          imageSource: "user_profile_bruno.png",
-          cupsSaved: 500
-        },
-        {
-          name: "Mars",
-          imageSource: "user_profile_bruno.png",
-          cupsSaved: 1450
-        }
-      ],
+      totalCupsSaved: Cup.count,
+      lastMonthTopSaver: last_month_winner.first_name,
+      lastMonthTopSaverImage: last_month_winner.avatar_72,
+      lastMonthTopSaverCupsSaved: 0,
+      thisMonthTops: top_5,
       trendData: [{
           period: '2016-08',
           cupsSaved: 1423
@@ -41,5 +30,29 @@ class GetDashboardData
           cupsSaved: 3767
       }]
     }
+  end
+
+  def top_5
+    Cup.
+      group(:user_identifier).
+      count.
+      sort_by { |user_identifier, count| count }.
+      reverse.first(5).
+      map do |user_identifier, count|
+        user = User.find_by_slack_identifier(user_identifier)
+        {
+          name: user.first_name,
+          imageSource: user.avatar_72,
+          cupsSaved: count
+        }
+    end.compact
+  end
+
+  def trend
+
+  end
+
+  def last_month_winner
+    User.last
   end
 end
