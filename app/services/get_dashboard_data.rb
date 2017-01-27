@@ -10,25 +10,7 @@ class GetDashboardData
       lastMonthTopSaverImage: last_month_winner.avatar_72,
       lastMonthTopSaverCupsSaved: 0,
       thisMonthTops: top_5,
-      trendData: [{
-          period: '2016-08',
-          cupsSaved: 1423
-      },{
-          period: '2016-09',
-          cupsSaved: 500
-      },{
-          period: '2016-10',
-          cupsSaved: 2666
-      }, {
-          period: '2016-11',
-          cupsSaved: 2778
-      }, {
-          period: '2016-12',
-          cupsSaved: 4912
-      }, {
-          period: '2017-01',
-          cupsSaved: 3767
-      }]
+      trendData: trend,
     }
   end
 
@@ -49,7 +31,16 @@ class GetDashboardData
   end
 
   def trend
-
+    Cup.
+      group("date_trunc('month', created_at)").
+      count.
+      sort_by { |date, _| date }.
+      map do |date, total|
+      {
+        period: date,
+        cupsSaved: total
+      }
+    end
   end
 
   def last_month_winner
