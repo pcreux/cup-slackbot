@@ -14,7 +14,7 @@
  *= require metisMenu.min
  *= require sb-admin-2
  *= require morris
- *= require font-awesome.min
+ *= require font-awesome
  *
  *= require_tree .
  *= require_self
