@@ -21,7 +21,7 @@ class Reply
     [
       "Thank you for using #{reusable_cups}. You rock!",
       "Awesome! You've used #{reusable_cups} this month!",
-      "#{reusable_cups} so far. Well done!"
+      "#{reusable_cups.capitalize} so far. Well done!"
     ].sample
   end
 
@@ -44,7 +44,7 @@ class Reply
 
   def reusable_cups
     sentence = if cups_this_month == 1
-      "a reusable cup"
+      "one reusable cup"
     else
       pluralize(cups_this_month, "reusable cup")
     end
