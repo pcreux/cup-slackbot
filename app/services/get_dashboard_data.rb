@@ -15,7 +15,7 @@ class GetDashboardData
   end
 
   def top_5
-    Cup.
+    this_month_cups.
       group(:user_identifier).
       count.
       sort_by { |user_identifier, count| count }.
@@ -69,5 +69,10 @@ class GetDashboardData
     Cup.
       where("created_at < ?", Time.now.beginning_of_month).
       where("created_at > ?", 1.month.ago.beginning_of_month)
+  end
+
+  def this_month_cups
+    Cup.
+      where("created_at > ?", Time.now.beginning_of_month)
   end
 end
